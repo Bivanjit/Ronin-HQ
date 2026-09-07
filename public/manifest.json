@@ -1,11 +1,13 @@
 {
-  "name": "RONIN Intelligence",
-  "short_name": "RONIN",
-  "description": "On-chain intelligence terminal",
-  "start_url": "/app",
-  "display": "standalone",
-  "background_color": "#020403",
-  "theme_color": "#020403",
-  "orientation": "any",
-  "icons": [{"src":"/ronin-mark.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+  "name":"RONIN Intelligence Terminal",
+  "short_name":"RONIN",
+  "description":"Real-time on-chain intelligence terminal.",
+  "start_url":"/app",
+  "scope":"/",
+  "display":"standalone",
+  "background_color":"#050706",
+  "theme_color":"#050706",
+  "orientation":"any",
+  "categories":["finance","business","productivity"],
+  "icons":[{"src":"/ronin-mark.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
