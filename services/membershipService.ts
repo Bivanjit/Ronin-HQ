@@ -1,0 +1,1 @@
+export const membershipService={getTiers(){return[{name:'OPEN CIRCLE',price:0,cadence:'forever',accent:'green'},{name:'VANGUARD',price:79,cadence:'/month',accent:'silver'},{name:'WARDEN',price:199,cadence:'/month',accent:'gold'},{name:'SHOGUN',price:499,cadence:'/month',accent:'red'}]}};
