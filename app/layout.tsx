@@ -6,30 +6,22 @@ import DisclosureBand from '@/components/shell/DisclosureBand';
 import CookiePreferences from '@/components/consent/CookiePreferences';
 import '@/app/globals.css';
 import '@/app/ronin-reference.css';
+import '@/app/home-reference.css';
 
 export const metadata: Metadata = {
   title: 'RONIN HQ — Predictive On-Chain Intelligence',
-  description:
-    'RONIN — predictive on-chain intelligence. Data over hype. Evidence over promises.',
+  description: 'RONIN — predictive on-chain intelligence. Data over hype. Evidence over promises.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>
         <ToastProvider>
-          <a className="skip-link" href="#main">
-            Skip to content
-          </a>
+          <a className="skip-link" href="#main">Skip to content</a>
           <DisclosureBand />
           <SiteHeader />
-          <main id="main" className="page-content">
-            {children}
-          </main>
+          <main id="main" className="page-content">{children}</main>
           <SiteFooter />
         </ToastProvider>
         <CookiePreferences />
