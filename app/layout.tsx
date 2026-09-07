@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
-import '@/app/globals.css';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'RONIN — Intelligence Before the Crowd',
-  description: 'RONIN is an on-chain intelligence service built around disciplined research, verification, and early opportunity discovery.',
+  title: 'RONIN — Intelligence Before The Crowd',
+  description: 'Real-time on-chain intelligence, evidence and accountable predictions.',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+  return <html lang="en"><body>{children}</body></html>;
 }
