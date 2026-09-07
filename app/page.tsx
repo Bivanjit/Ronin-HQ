@@ -1,36 +1,16 @@
-use client;
+'use client';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const SOCIALS = [
-  ['TELEGRAM', 'https://t.me/Roninoffical'],
-  ['INSTAGRAM', 'https://www.instagram.com/roninonchain?stkn=MWcwNXNjZmpqNTRkNQ%3D%3D'],
-  ['DISCORD', 'https://discord.gg/P22zCvBmz'],
-  ['REDDIT', 'https://reddit.com/u/RoninOnChain/s/IYkES207VR'],
-  ['YOUTUBE', 'https://www.youtube.com/@RoninOnChain'],
-] as const;
-
-const TIERS = [
-  { name:'OPEN CIRCLE', price:'$0', cadence:'forever', tone:'green', points:['Community access','RONIN philosophy & research','Public announcements','No fabricated signals','Core market analysis'] },
-  { name:'VANGUARD', price:'$79', cadence:'/ month', tone:'silver', points:['24/7 intelligence access','Faster processing','Stronger verification','Priority alerts','Detailed intelligence receipts','Greater coverage'] },
-  { name:'WARDEN', price:'$199', cadence:'/ month', tone:'gold', points:['Everything in Vanguard','Deep intelligence','Advanced wallet intelligence','Continuous ranking','Deeper verification','Continuous analysis'] },
-  { name:'SHOGUN', price:'$499', cadence:'/ month', tone:'red', points:['Everything in Warden','Maximum priority','Deepest verification','Independent validation','Strongest available intelligence','Priority processing'] },
-] as const;
-const METHOD = ['SCAN','DISCOVER','QUALIFY','UNDERSTAND','VERIFY','PREDICT','RECORD','TRACK','RESOLVE','LEARN'];
-const FAQ = [
- ['What is RONIN?','RONIN is an on-chain intelligence service built around discovery, qualification, verification, prediction, tracking, and measured learning.'],
- ['Where is intelligence delivered?','Telegram is the delivery layer. The website is the public front door for the mission, methodology, access levels, and community.'],
- ['Does RONIN guarantee returns?','No. RONIN does not guarantee profits, returns, accuracy, or outcomes. Crypto is high risk.'],
- ['Why can RONIN say no?','A disciplined system needs an abstention state. If evidence is insufficient or contradictory, there may be no valid prediction.'],
- ['How does founding access work?','The first 50 Open Circle members join free. After member 50, Open Circle becomes a one-time $1 joining fee.'],
- ['Is RONIN financial advice?','No. RONIN is an intelligence and research service. Users remain responsible for their own decisions and risk.'],
-];
+const SOCIALS = [['TELEGRAM','https://t.me/Roninoffical'],['INSTAGRAM','https://www.instagram.com/roninonchain?stkn=MWcwNXNjZmpqNTRkNQ%3D%3D'],['DISCORD','https://discord.gg/P22zCvBmz'],['REDDIT','https://reddit.com/u/RoninOnChain/s/IYkES207VR'],['YOUTUBE','https://www.youtube.com/@RoninOnChain']] as const;
+const TIERS=[{name:'OPEN CIRCLE',price:'$0',cadence:'forever',tone:'green',points:['Community access','RONIN philosophy & research','Public announcements','No fabricated signals','Core market analysis']},{name:'VANGUARD',price:'$79',cadence:'/ month',tone:'silver',points:['24/7 intelligence access','Faster processing','Stronger verification','Priority alerts','Detailed intelligence receipts','Greater coverage']},{name:'WARDEN',price:'$199',cadence:'/ month',tone:'gold',points:['Everything in Vanguard','Deep intelligence','Advanced wallet intelligence','Continuous ranking','Deeper verification','Continuous analysis']},{name:'SHOGUN',price:'$499',cadence:'/ month',tone:'red',points:['Everything in Warden','Maximum priority','Deepest verification','Independent validation','Strongest available intelligence','Priority processing']}] as const;
+const METHOD=['SCAN','DISCOVER','QUALIFY','UNDERSTAND','VERIFY','PREDICT','RECORD','TRACK','RESOLVE','LEARN'];
+const FAQ=[['What is RONIN?','RONIN is an on-chain intelligence service built around discovery, qualification, verification, prediction, tracking, and measured learning.'],['Where is intelligence delivered?','Telegram is the delivery layer. The website is the public front door for the mission, methodology, access levels, and community.'],['Does RONIN guarantee returns?','No. RONIN does not guarantee profits, returns, accuracy, or outcomes. Crypto is high risk.'],['Why can RONIN say no?','A disciplined system needs an abstention state. If evidence is insufficient or contradictory, there may be no valid prediction.'],['How does founding access work?','The first 50 Open Circle members join free. After member 50, Open Circle becomes a one-time $1 joining fee.'],['Is RONIN financial advice?','No. RONIN is an intelligence and research service. Users remain responsible for their own decisions and risk.']];
 
 export default function HomePage(){
  const [menu,setMenu]=useState(false),[faq,setFaq]=useState<number|null>(0),[modal,setModal]=useState<{type:'telegram'|'external';label:string;href:string}|null>(null),[accepted,setAccepted]=useState(false),[privacy,setPrivacy]=useState(true);
  useEffect(()=>setPrivacy(localStorage.getItem('ronin-privacy-choice')==='minimal'),[]);
- const go=(id:string)=>{setMenu(false);document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})};
  const telegram=(label='JOIN RONIN')=>{setAccepted(false);setModal({type:'telegram',label,href:'https://t.me/Roninoffical'})};
  return <div className="site">
   <header className="header"><div className="nav shell-wide"><a className="brand" href="#top" aria-label="RONIN home"><span className="brand-kanji">浪</span><span>RONIN</span></a><nav className={menu?'nav-links open':'nav-links'} aria-label="Primary">{['HOME','INTELLIGENCE','TIERS','ABOUT','FAQ','CONTACT'].map(x=><a key={x} href={'#'+x.toLowerCase()} onClick={()=>setMenu(false)}>{x}</a>)}</nav><div className="nav-actions"><a className="outline-btn" href="#tiers">ACCESS</a><button className="green-btn" onClick={()=>telegram()}>JOIN RONIN <span>→</span></button></div><button className="menu-toggle" aria-label="Toggle navigation" aria-expanded={menu} onClick={()=>setMenu(!menu)}><span/><span/><span/></button></div></header>
