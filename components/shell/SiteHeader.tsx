@@ -3,8 +3,8 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import MobileNavigation from './MobileNavigation';
 import Image from 'next/image';
+import MobileNavigation from './MobileNavigation';
 import { ARTWORK } from '@/lib/artwork';
 
 const NAV_LINKS = [
@@ -12,8 +12,8 @@ const NAV_LINKS = [
   { label: 'Intelligence', path: '/terminal' },
   { label: 'Tiers', path: '/access' },
   { label: 'About', path: '/research' },
-  { label: 'FAQ', path: '/faq' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'FAQ', path: '/research#faq' },
+  { label: 'Contact', path: '/research#contact' },
 ] as const;
 
 export default function SiteHeader() {
@@ -50,10 +50,11 @@ export default function SiteHeader() {
           <nav className="site-header__nav" aria-label="Main navigation">
             <ul className="site-header__nav-list">
               {NAV_LINKS.map(({ label, path }) => {
-                const isHome = path === '/';
-                const isActive = isHome ? pathname === '/' : pathname === path || pathname.startsWith(path + '/');
+                const basePath = path.split('#')[0];
+                const isHome = basePath === '/';
+                const isActive = isHome ? pathname === '/' : pathname === basePath || pathname.startsWith(basePath + '/');
                 return (
-                  <li key={path}>
+                  <li key={label}>
                     <Link
                       href={path}
                       className={'site-header__nav-link' + (isActive ? ' site-header__nav-link--active' : '')}
