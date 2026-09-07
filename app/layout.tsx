@@ -1,31 +1,15 @@
 import type { Metadata } from 'next';
-import { ToastProvider } from '@/lib/toast';
-import SiteHeader from '@/components/shell/SiteHeader';
-import SiteFooter from '@/components/shell/SiteFooter';
-import DisclosureBand from '@/components/shell/DisclosureBand';
-import CookiePreferences from '@/components/consent/CookiePreferences';
 import '@/app/globals.css';
-import '@/app/ronin-reference.css';
-import '@/app/home-reference.css';
 
 export const metadata: Metadata = {
-  title: 'RONIN HQ — Predictive On-Chain Intelligence',
-  description: 'RONIN — predictive on-chain intelligence. Data over hype. Evidence over promises.',
+  title: 'RONIN — Intelligence Before the Crowd',
+  description: 'RONIN is an on-chain intelligence service built around disciplined research, verification, and early opportunity discovery.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
-        <ToastProvider>
-          <a className="skip-link" href="#main">Skip to content</a>
-          <DisclosureBand />
-          <SiteHeader />
-          <main id="main" className="page-content">{children}</main>
-          <SiteFooter />
-        </ToastProvider>
-        <CookiePreferences />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
