@@ -1,3 +1,9 @@
+export const markets=[
+ {symbol:'BTC',price:'$67,432',change:'+2.4%',state:'EXPANSION'},
+ {symbol:'ETH',price:'$3,842',change:'+1.8%',state:'STABLE'},
+ {symbol:'SOL',price:'$144.32',change:'+6.2%',state:'MOMENTUM'},
+ {symbol:'SIGNALS',price:'18',change:'+6',state:'TODAY'}
+];
 export const opportunities=[
  {token:'SOL',pair:'SOL/USDC',signal:'ACCUMULATION',confidence:91,move:'+12.4%',risk:'MEDIUM',time:'2m ago'},
  {token:'POPCAT',pair:'POPCAT/USDC',signal:'MOMENTUM',confidence:84,move:'+8.7%',risk:'HIGH',time:'8m ago'},
